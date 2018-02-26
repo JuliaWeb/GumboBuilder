@@ -14,7 +14,7 @@ cache:
 env:
   global:
     - BINARYBUILDER_DOWNLOADS_CACHE=downloads
-    - BINARYBUILDER_AUTOMATIC_APPLE=false
+    - BINARYBUILDER_AUTOMATIC_APPLE=true
 sudo: required
 
 # Before anything else, get the latest versions of things
@@ -24,4 +24,15 @@ before_script:
 
 script:
   - julia build_tarballs.jl
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "F1WWy9nnSMAD33Imo+G8l5zO66OYTz6+Ys91OWEFifFm5KlTP5iS5WjW5XY49LzYnAmtY3gzR5z3qxMiHAoGCRhqiWUdIsXaV6CUgLs8XqCMMeH+uj/zSscFk+BAhUeVH+ABW+VTJYvQT072Vu8tUumEJ11u5PzzMsXMQPyx9giO1sitaGAyCRrdHQvDIU0Jli1jreYsi15tGi9gAGLwgdlBenbqoFhHa05oUyPxk3zFLBCZFvI05LdyrfJGXAI4et+PwGZR3fLbBPhaD63xf805/K0/VrycLlaUiE30nq1Mx8n3TOLBShezZZWIvo2k22zc0auDy3b4dvxSrT5GJD8M3UQXDsmGLvEeipWTvOnUuA9poPR50MUsXypz/1wugpYE4n3sRfJKyo7PtlSGlavpK319KvUZOSCyYGOvfskwx8MyCg1jABO7o/+36Bgva1v6QXSSUc1a0aCh/j9Xs26nJlRg4j3PBulHQVCIcnSvVyih1Tgy3e3Z52dnDh3rmMt4dfsZYYeEYoSJw7iNnB3EsvwPNoqGUIbYtUSVIJguX0QFGrxeAU+EsAltgZBJ8W63BggimW0tRjKm9XNMVgdw4A0SbJNldmGva4vsvNqyQ45yPQN2kDppdep6BDhD7NDK5xyInEIsnJogyyQs9cFNZZjOoX9m77a8z/nIi38="
+  file_glob: true
+  file: products/*
+  skip_cleanup: true
+  on:
+    repo: aviks/GumboBuilder
+    tags: true
 
