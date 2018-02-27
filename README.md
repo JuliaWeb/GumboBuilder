@@ -1,10 +1,5 @@
-# Gumbo builder
+# Gumbo Builder
 
-This repository builds binary artifacts for the Gumbo project.
-This repository has a default .travis.yml file that can be used to build
-binary artifacts on Travis CI. You will however need to setup the release
-upload manually. See https://docs.travis-ci.com/user/deployment/releases/.
+This repository builds binary artifacts for the [Gumbo](https://github.com/google/gumbo-parser) project on multiple platforms.
 
-If you don't wish to use travis, you can use the build_tarballs.jl
-file manually and upload the resulting artifacts to a hosting provider
-of your choice.
+The builds were created for use with the [Gumbo Julia Binding](https://github.com/porterjamesj/Gumbo.jl), but can be used on their own. The builds can be downloaded from the [github release page](https://github.com/aviks/GumboBuilder/releases) for this project.
